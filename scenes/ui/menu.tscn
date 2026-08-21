@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dmwy3rxlg373t"]
+
+[ext_resource type="Script" uid="uid://dtsxv06jjhwmd" path="res://scripts/menu.gd" id="1_7w7rl"]
+[ext_resource type="Texture2D" uid="uid://dsna8qhemk64h" path="res://assets/img/fon.jpg" id="2_wedc3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wedc3"]
+texture = ExtResource("2_wedc3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wedc3"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_288ov"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.3)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e11en"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.2)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="menu" type="Control" unique_id=851682184]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7w7rl")
+
+[node name="Panel" type="Panel" parent="." unique_id=1219358487]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wedc3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1328602911]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="BtnStart" type="Button" parent="Panel/VBoxContainer" unique_id=1671625021]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wedc3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_288ov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e11en")
+text = "Старт"
+
+[node name="BtnSettings" type="Button" parent="Panel/VBoxContainer" unique_id=313124570]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wedc3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_288ov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e11en")
+text = "Настройки"
+
+[node name="BtnExit" type="Button" parent="Panel/VBoxContainer" unique_id=653785345]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wedc3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_288ov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e11en")
+text = "Выход"
