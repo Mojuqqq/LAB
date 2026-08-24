@@ -1,7 +1,7 @@
 extends Control
 
 # Используем @onready с проверкой пути
-@onready var levels_container = $ScrollContainer/VBoxContainer
+@onready var levels_container = $FadeMask/ScrollContainer/VBoxContainer
 @onready var back_button = $Panel/ButtonBack   # предположим, что кнопка "Назад" называется ButtonBack
 
 var total_levels = 50

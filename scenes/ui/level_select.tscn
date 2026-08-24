@@ -7,22 +7,30 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_benfh"]
 texture = ExtResource("2_8yp2s")
 
+[sub_resource type="Gradient" id="Gradient_7l8mc"]
+offsets = PackedFloat32Array(0, 0.48192772, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.69411767, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_benfh"]
+gradient = SubResource("Gradient_7l8mc")
+fill_from = Vector2(1, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntye7"]
 
 [node name="LevelSelect" type="Control" unique_id=1206642065]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_swyxg")
 
 [node name="Panel" type="Panel" parent="." unique_id=1239154435]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_benfh")
@@ -57,26 +65,37 @@ theme = ExtResource("3_7l8mc")
 theme_override_font_sizes/font_size = 64
 text = "Back"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1252880605]
+[node name="FadeMask" type="TextureRect" parent="." unique_id=397531942]
+clip_children = 1
+custom_minimum_size = Vector2(1000, 780)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -376.5
+offset_top = -803.0
+offset_right = 376.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_benfh")
+expand_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FadeMask" unique_id=1252880605]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 500.0
-offset_top = 300.0
-offset_right = 1420.0
-offset_bottom = 1080.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ntye7")
+horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1354257182]
+[node name="VBoxContainer" type="VBoxContainer" parent="FadeMask/ScrollContainer" unique_id=1354257182]
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
 theme = ExtResource("3_7l8mc")
 theme_override_constants/separation = 10
 alignment = 1
