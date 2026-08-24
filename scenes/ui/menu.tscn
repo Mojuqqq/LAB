@@ -2,30 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dtsxv06jjhwmd" path="res://scripts/menu.gd" id="1_7w7rl"]
 [ext_resource type="Texture2D" uid="uid://dsna8qhemk64h" path="res://assets/img/fon.jpg" id="2_wedc3"]
+[ext_resource type="StyleBox" uid="uid://d15o0bdoa0idj" path="res://Styles/Style_button_norm.tres" id="3_cx0sj"]
+[ext_resource type="StyleBox" uid="uid://bgtme0dkoqbdo" path="res://Styles/Style_button_press.tres" id="4_ntye7"]
+[ext_resource type="StyleBox" uid="uid://evj456thaax6" path="res://Styles/Style_button_hover.tres" id="5_cghgw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wedc3"]
 texture = ExtResource("2_wedc3")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wedc3"]
-bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_288ov"]
-bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.3)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e11en"]
-bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.2)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [node name="menu" type="Control" unique_id=851682184]
 layout_mode = 3
@@ -57,23 +39,23 @@ alignment = 1
 [node name="BtnStart" type="Button" parent="Panel/VBoxContainer" unique_id=1671625021]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wedc3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_288ov")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e11en")
+theme_override_styles/normal = ExtResource("3_cx0sj")
+theme_override_styles/pressed = ExtResource("4_ntye7")
+theme_override_styles/hover = ExtResource("5_cghgw")
 text = "Старт"
 
 [node name="BtnSettings" type="Button" parent="Panel/VBoxContainer" unique_id=313124570]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wedc3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_288ov")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e11en")
+theme_override_styles/normal = ExtResource("3_cx0sj")
+theme_override_styles/pressed = ExtResource("4_ntye7")
+theme_override_styles/hover = ExtResource("5_cghgw")
 text = "Настройки"
 
 [node name="BtnExit" type="Button" parent="Panel/VBoxContainer" unique_id=653785345]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wedc3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_288ov")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e11en")
+theme_override_styles/normal = ExtResource("3_cx0sj")
+theme_override_styles/pressed = ExtResource("4_ntye7")
+theme_override_styles/hover = ExtResource("5_cghgw")
 text = "Выход"
