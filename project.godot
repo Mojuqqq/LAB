@@ -14,10 +14,6 @@ config/name="LAB"
 run/main_scene="uid://dmwy3rxlg373t"
 config/features=PackedStringArray("4.7", "Mobile")
 
-[autoload]
-
-GameManager="*uid://cb3o0bgcsmxcs"
-
 [display]
 
 window/size/viewport_width=1920

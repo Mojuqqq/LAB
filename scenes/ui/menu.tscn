@@ -6,6 +6,7 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wedc3"]
 texture = ExtResource("2_wedc3")
+modulate_color = Color(0.64954007, 0.24404939, 0, 1)
 
 [node name="menu" type="Control" unique_id=851682184]
 layout_mode = 3
@@ -37,15 +38,15 @@ alignment = 1
 
 [node name="BtnStart" type="Button" parent="Panel/VBoxContainer" unique_id=1671625021]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 text = "Старт"
 
 [node name="BtnSettings" type="Button" parent="Panel/VBoxContainer" unique_id=313124570]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 text = "Настройки"
 
 [node name="BtnExit" type="Button" parent="Panel/VBoxContainer" unique_id=653785345]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 48
 text = "Выход"
