@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bfroxafaxa86r"]
+
+[ext_resource type="PackedScene" uid="uid://07q7biea8vma" path="res://scenes/player/player.tscn" id="1_h8cp6"]
+
+[node name="PlayerTest" type="Node2D" unique_id=744515102]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2040335344]
+custom_minimum_size = Vector2(1920, 1080)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=822112427]
+custom_minimum_size = Vector2(960, 540)
+color = Color(0.19793725, 0.19793722, 0.19793722, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=33427207]
+custom_minimum_size = Vector2(960, 540)
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.19793725, 0.19793722, 0.19793722, 1)
+
+[node name="Player" parent="." unique_id=1379527924 instance=ExtResource("1_h8cp6")]
+position = Vector2(960, 540)

@@ -17,7 +17,7 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction * speed
 
 	if direction != Vector2.ZERO:
-		animated_sprite.rotation = direction.angle() - PI / 2
+		rotation = direction.angle() + PI / 2
 		animated_sprite.play("walk")
 	else:
 		animated_sprite.stop()
