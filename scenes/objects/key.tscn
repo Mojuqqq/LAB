@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dmu0ym00ogik"]
+
+[ext_resource type="Script" uid="uid://cecjfxn0nkrsy" path="res://scripts/key.gd" id="1_tfk8p"]
+[ext_resource type="Texture2D" uid="uid://d1ojm8huylc4k" path="res://assets/img/objects/key.png" id="2_nghci"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejf0q"]
+radius = 7.044161
+height = 79.387634
+
+[node name="Key" type="Area2D" unique_id=152916180 groups=["key"]]
+script = ExtResource("1_tfk8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566738713]
+scale = Vector2(0.2734375, 0.2734375)
+texture = ExtResource("2_nghci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1538626970]
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_ejf0q")
