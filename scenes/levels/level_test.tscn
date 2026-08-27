@@ -57,6 +57,8 @@ position = Vector2(1698, 707)
 [node name="Exit" parent="Objects" unique_id=1489423001 instance=ExtResource("5_4lw2e")]
 position = Vector2(1505, 197)
 
+[node name="Key3" parent="Objects" unique_id=959660539 instance=ExtResource("4_uh3ll")]
+position = Vector2(1191, 383)
+
 [node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]
 position = Vector2(889, 542)
-collision_layer = 2
