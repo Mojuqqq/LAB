@@ -34,6 +34,7 @@ animations = [{
 radius = 24.083189
 
 [node name="Player" type="CharacterBody2D" unique_id=1379527924 groups=["player"]]
+collision_layer = 2
 up_direction = Vector2(1, 0)
 script = ExtResource("1_lvxji")
 

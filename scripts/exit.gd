@@ -27,4 +27,12 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Сначала собери все ключи!")
 		return
 
+	complete_level()
+
+
+func complete_level() -> void:
 	print("Уровень пройден!")
+
+	get_tree().change_scene_to_file(
+		"res://scenes/ui/level_select.tscn"
+	)

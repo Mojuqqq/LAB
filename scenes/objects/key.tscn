@@ -8,6 +8,8 @@ radius = 7.044161
 height = 79.387634
 
 [node name="Key" type="Area2D" unique_id=152916180 groups=["keys"]]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_tfk8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566738713]
