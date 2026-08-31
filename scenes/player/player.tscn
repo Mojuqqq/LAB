@@ -58,4 +58,5 @@ zoom = Vector2(4, 4)
 position = Vector2(-7.1054274e-14, -60)
 rotation = 3.1415927
 scale = Vector2(0.6, 0.6)
+shadow_enabled = true
 texture = ExtResource("5_p47bc")
