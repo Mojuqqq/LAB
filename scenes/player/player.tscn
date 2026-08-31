@@ -31,7 +31,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
-radius = 24.083189
+radius = 14.035668
 
 [node name="Player" type="CharacterBody2D" unique_id=1379527924 groups=["player"]]
 collision_layer = 2
@@ -40,11 +40,11 @@ script = ExtResource("1_lvxji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1085879128]
 position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ejf0q")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972540712]
-position = Vector2(0, -2)
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_lvxji")
 

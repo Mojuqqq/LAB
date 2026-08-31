@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cn50k0bewtefs" path="res://scripts/exit.gd" id="1_pm745"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejf0q"]
-size = Vector2(96, 125)
+size = Vector2(32, 38)
 
 [node name="Exit" type="Area2D" unique_id=1489423001]
 collision_layer = 0
@@ -12,8 +12,9 @@ collision_mask = 2
 script = ExtResource("1_pm745")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=154521972]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ilbk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1171001151]
-position = Vector2(14, 0.5)
+position = Vector2(6, 4)
 shape = SubResource("RectangleShape2D_ejf0q")

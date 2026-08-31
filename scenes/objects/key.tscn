@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejf0q"]
 radius = 7.044161
-height = 79.387634
+height = 45.254837
 
 [node name="Key" type="Area2D" unique_id=152916180 groups=["keys"]]
 collision_layer = 0
@@ -13,7 +13,7 @@ collision_mask = 2
 script = ExtResource("1_tfk8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566738713]
-scale = Vector2(0.2734375, 0.2734375)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_nghci")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1538626970]
