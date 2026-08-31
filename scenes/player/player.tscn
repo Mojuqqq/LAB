@@ -55,8 +55,7 @@ zoom = Vector2(4, 4)
 [node name="AttackOrigin" type="Marker2D" parent="." unique_id=279584826]
 
 [node name="Flashlight" type="PointLight2D" parent="." unique_id=437738583]
-position = Vector2(-7.1054274e-14, -60)
 rotation = 3.1415927
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.6, 0.7366721)
 shadow_enabled = true
 texture = ExtResource("5_p47bc")
