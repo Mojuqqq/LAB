@@ -1,13 +1,16 @@
 extends Area2D
 
 
+signal level_completed
+
+
 var is_open: bool = false
+var is_completed: bool = false
 
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
-	# Пока выход закрыт — немного затемняем его.
 	$Sprite2D.modulate = Color(0.5, 0.5, 0.5)
 
 
@@ -27,12 +30,9 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Сначала собери все ключи!")
 		return
 
-	complete_level()
+	if is_completed:
+		return
 
+	is_completed = true
 
-func complete_level() -> void:
-	print("Уровень пройден!")
-
-	get_tree().change_scene_to_file(
-		"res://scenes/ui/level_select.tscn"
-	)
+	level_completed.emit()

@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dtoe2ixanytiy" path="res://assets/img/tiles/wall/lower left wall.png" id="16_qnt4a"]
 [ext_resource type="Texture2D" uid="uid://unt7s4f5lpev" path="res://assets/img/tiles/wall/lower right wall.png" id="17_renpy"]
 [ext_resource type="Texture2D" uid="uid://bi5i1qhbs00ji" path="res://assets/img/tiles/wall/upper left wall.png" id="18_14a6r"]
+[ext_resource type="PackedScene" uid="uid://dvp83ydepxst0" path="res://scenes/popup/Game_Over_Popup.tscn" id="22_pjn7f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cyjsj"]
 texture = ExtResource("2_0a6j2")
@@ -164,3 +165,6 @@ position = Vector2(675, 921)
 
 [node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]
 position = Vector2(204, 994)
+
+[node name="GameOverPopup" parent="." unique_id=1466469747 instance=ExtResource("22_pjn7f")]
+visible = false
