@@ -153,14 +153,14 @@ tile_set = SubResource("TileSet_0a6j2")
 
 [node name="Objects" type="Node2D" parent="." unique_id=7778666]
 
-[node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]
-position = Vector2(204, 994)
-
-[node name="Exit" parent="." unique_id=1489423001 instance=ExtResource("5_4lw2e")]
+[node name="Exit" parent="Objects" unique_id=1489423001 instance=ExtResource("5_4lw2e")]
 position = Vector2(1055, 609)
 
-[node name="Key" parent="." unique_id=152916180 instance=ExtResource("4_uh3ll")]
+[node name="Key" parent="Objects" unique_id=152916180 instance=ExtResource("4_uh3ll")]
 position = Vector2(794, 540)
 
-[node name="Key2" parent="." unique_id=225121988 instance=ExtResource("4_uh3ll")]
+[node name="Key2" parent="Objects" unique_id=225121988 instance=ExtResource("4_uh3ll")]
 position = Vector2(675, 921)
+
+[node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]
+position = Vector2(204, 994)
