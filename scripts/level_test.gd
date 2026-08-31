@@ -46,12 +46,11 @@ func _process(_delta: float) -> void:
 
 
 func update_timer_label() -> void:
-	var time_left := max(level_timer.time_left, 0.0)
+	var time_left: float = maxf(level_timer.time_left, 0.0)
+	var total_seconds: int = int(ceil(time_left))
 
-	var total_seconds := int(ceil(time_left))
-
-	var minutes := total_seconds / 60
-	var seconds := total_seconds % 60
+	var minutes: int = int(total_seconds / 60.0)
+	var seconds: int = total_seconds % 60
 
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
