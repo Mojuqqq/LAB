@@ -202,5 +202,4 @@ theme_override_font_sizes/font_size = 32
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1336900818]
-visible = false
 color = Color(0.0627451, 0.0627451, 0.0627451, 1)
