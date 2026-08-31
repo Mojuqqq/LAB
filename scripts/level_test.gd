@@ -13,7 +13,6 @@ extends Node2D
 var keys_left: int = 0
 var level_ended: bool = false
 
-
 func _ready() -> void:
 	var keys := get_tree().get_nodes_in_group("keys")
 
@@ -23,6 +22,8 @@ func _ready() -> void:
 
 	for key in keys:
 		key.collected.connect(_on_key_collected)
+		
+		exit.level_completed.connect(_on_level_completed)
 
 	if keys_left == 0:
 		exit.open()
@@ -78,3 +79,14 @@ func _on_level_timer_timeout() -> void:
 	game_over_popup.visible = true
 
 	get_tree().paused = true
+	
+func _on_level_completed() -> void:
+	if level_ended:
+		return
+
+	level_ended = true
+	level_timer.stop()
+
+	get_tree().change_scene_to_file(
+		"res://scenes/ui/level_select.tscn"
+	)

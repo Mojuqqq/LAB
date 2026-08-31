@@ -174,8 +174,12 @@ one_shot = true
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1915944556]
 
 [node name="TimerLabel" type="Label" parent="HUD" unique_id=415552810]
-offset_right = 40.0
+anchors_preset = -1
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 160.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
 
 [node name="GameOverPopup" parent="." unique_id=1466469747 instance=ExtResource("22_pjn7f")]
 visible = false

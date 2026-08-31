@@ -49,5 +49,6 @@ rotation = 1.5707964
 shape = SubResource("CircleShape2D_lvxji")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=813495343]
+zoom = Vector2(6, 6)
 
 [node name="AttackOrigin" type="Marker2D" parent="." unique_id=279584826]
