@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://x0md30s4c0do" path="res://scripts/player.gd" id="1_lvxji"]
 [ext_resource type="Texture2D" uid="uid://ou0viyev8kv1" path="res://assets/img/Player/player3.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://56o32b3te2dp" path="res://assets/img/Player/player2.png" id="3_p47bc"]
+[ext_resource type="Texture2D" uid="uid://drer1ofu5yikh" path="res://assets/img/tiles/light.png" id="5_p47bc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ejf0q"]
 animations = [{
@@ -49,6 +50,12 @@ rotation = 1.5707964
 shape = SubResource("CircleShape2D_lvxji")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=813495343]
-zoom = Vector2(6, 6)
+zoom = Vector2(4, 4)
 
 [node name="AttackOrigin" type="Marker2D" parent="." unique_id=279584826]
+
+[node name="Flashlight" type="PointLight2D" parent="." unique_id=437738583]
+position = Vector2(-7.1054274e-14, -60)
+rotation = 3.1415927
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_p47bc")

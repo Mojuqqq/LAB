@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bfroxafaxa86r"]
+[gd_scene format=3 uid="uid://ca74vj4110cmw"]
 
-[ext_resource type="PackedScene" uid="uid://07q7biea8vma" path="res://scenes/player/player.tscn" id="1_h8cp6"]
+[ext_resource type="PackedScene" uid="uid://07q7biea8vma" path="res://scenes/player/player.tscn" id="1_qifcm"]
 
 [node name="PlayerTest" type="Node2D" unique_id=744515102]
 
@@ -19,5 +19,5 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.19793725, 0.19793722, 0.19793722, 1)
 
-[node name="Player" parent="." unique_id=1379527924 instance=ExtResource("1_h8cp6")]
+[node name="Player" parent="." unique_id=1379527924 instance=ExtResource("1_qifcm")]
 position = Vector2(960, 540)
