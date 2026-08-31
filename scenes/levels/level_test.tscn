@@ -166,5 +166,15 @@ position = Vector2(675, 921)
 [node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]
 position = Vector2(204, 994)
 
+[node name="LevelTimer" type="Timer" parent="." unique_id=1655511372]
+wait_time = 20.0
+one_shot = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1915944556]
+
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=415552810]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="GameOverPopup" parent="." unique_id=1466469747 instance=ExtResource("22_pjn7f")]
 visible = false
