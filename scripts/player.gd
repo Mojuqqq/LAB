@@ -6,6 +6,8 @@ signal health_changed(
 	max_health: int
 )
 
+signal died
+
 
 @export var speed: float = 250.0
 @export var idle_delay: float = 0.0
@@ -27,6 +29,7 @@ var health: int
 var idle_timer: float = 0.0
 
 var can_attack: bool = true
+var is_dead: bool = false
 
 
 func _ready() -> void:
@@ -36,6 +39,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		velocity = Vector2.ZERO
+		return
+
 	handle_movement(delta)
 
 	if Input.is_action_just_pressed("attack"):
@@ -55,7 +62,6 @@ func handle_movement(delta: float) -> void:
 	if direction != Vector2.ZERO:
 		idle_timer = 0.0
 
-		# Персонаж нарисован лицом вверх.
 		rotation = direction.angle() + PI / 2.0
 
 		if animated_sprite.animation != "walk":
@@ -73,6 +79,9 @@ func handle_movement(delta: float) -> void:
 
 func attack() -> void:
 	if not can_attack:
+		return
+
+	if is_dead:
 		return
 
 	can_attack = false
@@ -96,6 +105,9 @@ func attack() -> void:
 
 
 func take_damage(damage: int) -> void:
+	if is_dead:
+		return
+
 	health = maxi(
 		health - damage,
 		0
@@ -123,4 +135,13 @@ func take_damage(damage: int) -> void:
 
 
 func die() -> void:
+	if is_dead:
+		return
+
+	is_dead = true
+
+	velocity = Vector2.ZERO
+
 	print("Игрок погиб!")
+
+	died.emit()

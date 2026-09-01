@@ -54,6 +54,10 @@ func _ready() -> void:
 	_on_player_health_changed
 )
 
+	player.died.connect(
+	_on_player_died
+)
+
 	health_bar.min_value = 0
 	health_bar.max_value = player.max_health
 	health_bar.value = player.health
@@ -147,16 +151,9 @@ func show_time_bonus(seconds: float) -> void:
 
 
 func _on_level_timer_timeout() -> void:
-	if level_ended:
-		return
-
-	level_ended = true
-
 	timer_label.text = "00:00"
 
-	game_over_popup.visible = true
-
-	get_tree().paused = true
+	show_game_over()
 
 
 func _on_level_completed() -> void:
@@ -182,3 +179,19 @@ func update_key_counter() -> void:
 		keys_collected,
 		total_keys
 	]
+
+func _on_player_died() -> void:
+	show_game_over()
+
+
+func show_game_over() -> void:
+	if level_ended:
+		return
+
+	level_ended = true
+
+	level_timer.stop()
+
+	game_over_popup.visible = true
+
+	get_tree().paused = true
