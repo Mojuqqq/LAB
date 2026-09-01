@@ -15,7 +15,6 @@ extends Node2D
 @onready var key_counter: Label = $HUD/KeyCounter
 
 
-var keys_left: int = 0
 var level_ended: bool = false
 var time_bonus_tween: Tween
 
