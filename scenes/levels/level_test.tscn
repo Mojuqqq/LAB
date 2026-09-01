@@ -159,7 +159,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_bqmi1"]
 tile_size = Vector2i(64, 64)
-navigation_layer_0/layers = 0
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_cyjsj")
 sources/1 = SubResource("TileSetAtlasSource_bmpmm")
 sources/3 = SubResource("TileSetAtlasSource_sqsck")
