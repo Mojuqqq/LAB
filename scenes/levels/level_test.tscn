@@ -306,6 +306,7 @@ theme_override_font_sizes/font_size = 32
 text = "+5 сек."
 
 [node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=979700897]
+z_index = 10
 custom_minimum_size = Vector2(220, 24)
 anchors_preset = -1
 anchor_left = 0.5
@@ -315,7 +316,7 @@ anchor_bottom = 1.0
 offset_left = -110.0
 offset_top = -60.0
 offset_right = 110.0
-offset_bottom = -30.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_t58d3")
@@ -327,7 +328,6 @@ show_percentage = false
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1336900818]
-visible = false
 color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
 [node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]
