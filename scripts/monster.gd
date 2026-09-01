@@ -7,7 +7,7 @@ enum State {
 	ATTACK
 }
 
-
+@export var max_health: int = 3
 @export var speed: float = 80.0
 @export var rotation_speed: float = 10.0
 
@@ -29,6 +29,7 @@ enum State {
 @onready var attack_timer: Timer = $AttackTimer
 
 
+var health: int
 var state: State = State.WANDER
 var player: Node2D = null
 
@@ -39,6 +40,7 @@ var stuck_check_position: Vector2
 
 
 func _ready() -> void:
+	health = max_health
 	rng.randomize()
 
 	detection_area.body_entered.connect(
@@ -327,3 +329,28 @@ func attack_player() -> void:
 		)
 	else:
 		print("Монстр атакует игрока!")
+		
+func take_damage(damage: int) -> void:
+	health = maxi(
+		health - damage,
+		0
+	)
+
+	print(
+		"Монстр получил урон: ",
+		damage
+	)
+
+	print(
+		"Monster HP: ",
+		health,
+		"/",
+		max_health
+	)
+
+	if health <= 0:
+		die()
+
+
+func die() -> void:
+	queue_free()

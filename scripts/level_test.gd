@@ -12,17 +12,26 @@ extends Node2D
 @onready var game_over_popup: CanvasLayer = $GameOverPopup
 @onready var player = $Player
 @onready var health_bar: ProgressBar = $HUD/HealthBar
+@onready var key_counter: Label = $HUD/KeyCounter
 
 
 var keys_left: int = 0
 var level_ended: bool = false
 var time_bonus_tween: Tween
 
+var total_keys: int = 0
+var keys_collected: int = 0
+var keys_left: int = 0
+
 
 func _ready() -> void:
 	var keys := get_tree().get_nodes_in_group("keys")
 
-	keys_left = keys.size()
+	total_keys = keys.size()
+	keys_left = total_keys
+	keys_collected = 0
+
+	update_key_counter()
 
 	print("Ключей на уровне: ", keys_left)
 
@@ -74,12 +83,20 @@ func _on_key_collected() -> void:
 	if level_ended:
 		return
 
+	keys_collected += 1
 	keys_left -= 1
+
+	update_key_counter()
 
 	add_bonus_time(key_time_bonus)
 	show_time_bonus(key_time_bonus)
 
-	print("Осталось ключей: ", keys_left)
+	print(
+		"Ключей собрано: ",
+		keys_collected,
+		"/",
+		total_keys
+	)
 
 	if keys_left <= 0:
 		exit.open()
@@ -160,3 +177,9 @@ func _on_player_health_changed(
 ) -> void:
 	health_bar.max_value = max_health
 	health_bar.value = current_health
+	
+func update_key_counter() -> void:
+	key_counter.text = "%d / %d" % [
+		keys_collected,
+		total_keys
+	]

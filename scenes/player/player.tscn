@@ -36,6 +36,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 14.035668
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_benfh"]
+radius = 35.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1379527924 groups=["player"]]
 collision_layer = 2
 up_direction = Vector2(1, 0)
@@ -56,6 +59,14 @@ zoom = Vector2(4, 4)
 script = ExtResource("5_0owmy")
 
 [node name="AttackOrigin" type="Marker2D" parent="." unique_id=279584826]
+
+[node name="AttackArea" type="Area2D" parent="AttackOrigin" unique_id=1310107109]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackOrigin/AttackArea" unique_id=1488176472]
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_benfh")
 
 [node name="TorchLight" type="PointLight2D" parent="." unique_id=437738583]
 scale = Vector2(0.5, 0.5)
