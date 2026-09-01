@@ -11,7 +11,7 @@ extends Node2D
 @onready var time_bonus_label: Label = $HUD/TopCenter/TimeBonusLabel
 @onready var game_over_popup: CanvasLayer = $GameOverPopup
 @onready var player = $Player
-@onready var health_bar: ProgressBar = $HUD/BottomCenter/HealthBar
+@onready var health_bar: ProgressBar = $HUD/HealthBar
 
 
 var keys_left: int = 0
