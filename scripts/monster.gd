@@ -26,6 +26,7 @@ var player: Node2D = null
 
 var rng := RandomNumberGenerator.new()
 
+
 func _ready() -> void:
 	rng.randomize()
 
@@ -40,8 +41,18 @@ func _ready() -> void:
 	attack_timer.wait_time = attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 
-	call_deferred("choose_wander_target")
-	
+	await wait_for_navigation()
+
+	choose_wander_target()
+
+
+func wait_for_navigation() -> void:
+	var map := navigation_agent.get_navigation_map()
+
+	while NavigationServer2D.map_get_iteration_id(map) == 0:
+		await get_tree().physics_frame
+
+
 func _physics_process(_delta: float) -> void:
 	match state:
 		State.WANDER:
@@ -54,7 +65,8 @@ func _physics_process(_delta: float) -> void:
 			velocity = Vector2.ZERO
 
 	move_and_slide()
-	
+
+
 func move_along_navigation() -> void:
 	if navigation_agent.is_navigation_finished():
 		velocity = Vector2.ZERO
@@ -65,9 +77,16 @@ func move_along_navigation() -> void:
 	var direction := global_position.direction_to(next_position)
 
 	velocity = direction * speed
-	
+
+
 func choose_wander_target() -> void:
 	if state != State.WANDER:
+		return
+
+	var map := navigation_agent.get_navigation_map()
+
+	# Страховка: не делаем запрос, пока карта ещё не готова.
+	if NavigationServer2D.map_get_iteration_id(map) == 0:
 		return
 
 	var random_offset := Vector2(
@@ -76,8 +95,6 @@ func choose_wander_target() -> void:
 	)
 
 	var desired_position := global_position + random_offset
-
-	var map := navigation_agent.get_navigation_map()
 
 	var valid_position := NavigationServer2D.map_get_closest_point(
 		map,
@@ -89,18 +106,21 @@ func choose_wander_target() -> void:
 	wander_timer.start(
 		rng.randf_range(2.0, 5.0)
 	)
-	
+
+
 func _on_wander_timer_timeout() -> void:
 	if state == State.WANDER:
 		choose_wander_target()
-		
+
+
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):
 		return
 
 	player = body
 	state = State.CHASE
-	
+
+
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body != player:
 		return
@@ -109,7 +129,8 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	state = State.WANDER
 
 	choose_wander_target()
-	
+
+
 func chase_player() -> void:
 	if not player:
 		state = State.WANDER
@@ -119,7 +140,8 @@ func chase_player() -> void:
 	navigation_agent.target_position = player.global_position
 
 	move_along_navigation()
-	
+
+
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body != player:
 		return
@@ -130,7 +152,8 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 	attack_player()
 
 	attack_timer.start()
-	
+
+
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body != player:
 		return
@@ -141,7 +164,9 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 		state = State.CHASE
 	else:
 		state = State.WANDER
-		
+		choose_wander_target()
+
+
 func _on_attack_timer_timeout() -> void:
 	attack_player()
 
@@ -152,4 +177,5 @@ func attack_player() -> void:
 
 	if player.has_method("take_damage"):
 		player.take_damage(attack_damage)
-		
+	else:
+		print("Монстр атакует игрока!")
