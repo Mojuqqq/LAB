@@ -231,9 +231,19 @@ sources/2 = SubResource("TileSetAtlasSource_ts3kv")
 sources/1 = SubResource("TileSetAtlasSource_pjn7f")
 sources/0 = SubResource("TileSetAtlasSource_0a6j2")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t58d3"]
+bg_color = Color(0.09239719, 0.09239704, 0.09239692, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.48962224, 0.48962224, 0.489622, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrb78"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="LevelTest" type="Node2D" unique_id=524379075]
 script = ExtResource("3_4ptlp")
-level_time = 20.0
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=999463077]
 tile_map_data = PackedByteArray("AAACAA8AAwAAAAAAAAADAA8AAwAAAAAAAAAEAA8AAwAAAAAAAAAFAA8AAwAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAwAAAAAAAAAIAA8AAwAAAAAAAAAJAA8AAwAAAAAAAAAGAA4ACwAAAAAAAAAGAA0ACwAAAAAAAAAGAAwACwAAAAAAAAAGAAsAAQAAAAAAAAAHAAsAAwAAAAAAAAAIAAsAAwAAAAAAAAAJAAsAAwAAAAAAAAAFAAsAAwAAAAAAAAAEAAsAAwAAAAAAAAADAAsAAwAAAAAAAAAGAAoACwAAAAAAAAAGAAkACwAAAAAAAAAGAAgACAAAAAAAAAAEAAgAAwAAAAAAAAAFAAgAAwAAAAAAAAACAAsABAAAAAAAAAACAAwACwAAAAAAAAAQAA4ACwAAAAAAAAAQAA8ABgAAAAAAAAAPAA8AAwAAAAAAAAAOAA8AAwAAAAAAAAAQAAkACwAAAAAAAAAQAAoACwAAAAAAAAAQAAsACwAAAAAAAAANAAsACgAAAAAAAAAKAAsAAwAAAAAAAAALAAsAAwAAAAAAAAAMAAsAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAACAAgACQAAAAAAAAACAAoACwAAAAAAAAACAAkACwAAAAAAAAADAAgAAwAAAAAAAAAKAA8ABgAAAAAAAAAKAA4ACwAAAAAAAAAQAA0ACwAAAAAAAAAQAAwABwAAAAAAAAAPAAwAAwAAAAAAAAAOAAwAAwAAAAAAAAANAAwABQAAAAAAAAA=")
@@ -273,27 +283,53 @@ one_shot = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1915944556]
 
-[node name="TimerLabel" type="Label" parent="HUD" unique_id=415552810]
-anchors_preset = -1
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 160.0
-offset_bottom = 23.0
+[node name="TopCenter" type="MarginContainer" parent="HUD" unique_id=960867488]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.5
+offset_right = 77.5
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="TimerLabel" type="Label" parent="HUD/TopCenter" unique_id=415552810]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="TimeBonusLabel" type="Label" parent="HUD" unique_id=264137723]
-anchors_preset = -1
-offset_left = 30.0
-offset_top = 70.0
-offset_right = 70.0
-offset_bottom = 53.0
+[node name="TimeBonusLabel" type="Label" parent="HUD/TopCenter" unique_id=264137723]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "+5 сек."
+
+[node name="BottomCenter" type="MarginContainer" parent="HUD" unique_id=1607198095]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -40.0
+offset_right = 110.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HealthBar" type="ProgressBar" parent="HUD/BottomCenter" unique_id=979700897]
+custom_minimum_size = Vector2(220, 24)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_t58d3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mrb78")
+max_value = 5.0
+show_percentage = false
 
 [node name="GameOverPopup" parent="." unique_id=1466469747 instance=ExtResource("22_pjn7f")]
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1336900818]
+visible = false
 color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
 [node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]

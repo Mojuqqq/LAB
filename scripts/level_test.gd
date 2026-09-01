@@ -7,9 +7,11 @@ extends Node2D
 
 @onready var exit: Area2D = $Objects/Exit
 @onready var level_timer: Timer = $LevelTimer
-@onready var timer_label: Label = $HUD/TimerLabel
-@onready var time_bonus_label: Label = $HUD/TimeBonusLabel
+@onready var timer_label: Label = $HUD/TopCenter/TimerLabel
+@onready var time_bonus_label: Label = $HUD/TopCenter/TimeBonusLabel
 @onready var game_over_popup: CanvasLayer = $GameOverPopup
+@onready var player = $Player
+@onready var health_bar: ProgressBar = $HUD/BottomCenter/HealthBar
 
 
 var keys_left: int = 0
@@ -39,6 +41,14 @@ func _ready() -> void:
 
 	game_over_popup.visible = false
 	time_bonus_label.visible = false
+	
+	player.health_changed.connect(
+	_on_player_health_changed
+)
+
+	health_bar.min_value = 0
+	health_bar.max_value = player.max_health
+	health_bar.value = player.health
 
 	update_timer_label()
 
@@ -143,3 +153,10 @@ func _on_level_completed() -> void:
 	get_tree().change_scene_to_file(
 		"res://scenes/ui/level_select.tscn"
 	)
+	
+func _on_player_health_changed(
+	current_health: int,
+	max_health: int
+) -> void:
+	health_bar.max_value = max_health
+	health_bar.value = current_health

@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
+signal health_changed(current_health: int, max_health: int)
 
 @export var speed: float = 250.0
 @export var idle_delay: float = 0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var max_health: int = 5
+
 
 var health: int
 var idle_timer: float = 0.0
@@ -49,7 +51,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func take_damage(damage: int) -> void:
-	health -= damage
+	health = maxi(health - damage, 0)
+
+	health_changed.emit(
+		health,
+		max_health
+	)
 
 	print("Игрок получил урон: ", damage)
 	print("HP: ", health, "/", max_health)
