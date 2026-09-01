@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://unt7s4f5lpev" path="res://assets/img/tiles/wall/lower right wall.png" id="17_renpy"]
 [ext_resource type="Texture2D" uid="uid://bi5i1qhbs00ji" path="res://assets/img/tiles/wall/upper left wall.png" id="18_14a6r"]
 [ext_resource type="PackedScene" uid="uid://dvp83ydepxst0" path="res://scenes/popup/Game_Over_Popup.tscn" id="22_pjn7f"]
+[ext_resource type="PackedScene" uid="uid://dl6ityi8quvht" path="res://scenes/mobs/Monster.tscn" id="22_t58d3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cyjsj"]
 texture = ExtResource("2_0a6j2")
@@ -180,9 +181,13 @@ position = Vector2(794, 540)
 [node name="Key2" parent="Objects" unique_id=225121988 instance=ExtResource("4_uh3ll")]
 position = Vector2(675, 921)
 
-[node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]
-position = Vector2(179, 990)
-rotation = 1.5707964
+[node name="Enemies" type="Node2D" parent="." unique_id=1896043551]
+
+[node name="Monster2" parent="Enemies" unique_id=818416497 instance=ExtResource("22_t58d3")]
+position = Vector2(417, 562)
+
+[node name="Monster" parent="Enemies" unique_id=108428248 instance=ExtResource("22_t58d3")]
+position = Vector2(861, 742)
 
 [node name="LevelTimer" type="Timer" parent="." unique_id=1655511372]
 wait_time = 20.0
@@ -198,8 +203,22 @@ offset_right = 160.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 32
 
+[node name="TimeBonusLabel" type="Label" parent="HUD" unique_id=264137723]
+anchors_preset = -1
+offset_left = 30.0
+offset_top = 70.0
+offset_right = 70.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "+5 сек."
+
 [node name="GameOverPopup" parent="." unique_id=1466469747 instance=ExtResource("22_pjn7f")]
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1336900818]
+visible = false
 color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[node name="Player" parent="." unique_id=1379527924 instance=ExtResource("3_ycf23")]
+position = Vector2(179, 990)
+rotation = 1.5707964

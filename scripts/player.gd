@@ -5,11 +5,15 @@ extends CharacterBody2D
 @export var idle_delay: float = 0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var max_health: int = 5
 
+var health: int
 var idle_timer: float = 0.0
 
 
 func _ready() -> void:
+	health = max_health
+
 	animated_sprite.play("idle")
 
 
@@ -43,3 +47,16 @@ func _physics_process(delta: float) -> void:
 				animated_sprite.play("idle")
 
 	move_and_slide()
+	
+func take_damage(damage: int) -> void:
+	health -= damage
+
+	print("Игрок получил урон: ", damage)
+	print("HP: ", health, "/", max_health)
+
+	if health <= 0:
+		die()
+
+
+func die() -> void:
+	print("Игрок погиб!")

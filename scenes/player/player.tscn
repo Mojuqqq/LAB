@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ou0viyev8kv1" path="res://assets/img/Player/player3.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://56o32b3te2dp" path="res://assets/img/Player/player2.png" id="3_p47bc"]
 [ext_resource type="Texture2D" uid="uid://drer1ofu5yikh" path="res://assets/img/tiles/light.png" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://ci4kj1boljtoc" path="res://scripts/torch_light.gd" id="6_75vfm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ejf0q"]
 animations = [{
@@ -54,8 +55,8 @@ zoom = Vector2(4, 4)
 
 [node name="AttackOrigin" type="Marker2D" parent="." unique_id=279584826]
 
-[node name="Flashlight" type="PointLight2D" parent="." unique_id=437738583]
-rotation = 3.1415927
-scale = Vector2(0.6, 0.7366721)
+[node name="TorchLight" type="PointLight2D" parent="." unique_id=437738583]
+scale = Vector2(0.5, 0.5)
 shadow_enabled = true
 texture = ExtResource("5_p47bc")
+script = ExtResource("6_75vfm")
