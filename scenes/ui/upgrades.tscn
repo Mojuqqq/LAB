@@ -36,11 +36,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="BackButton" type="Button" parent="." unique_id=1367711728]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
 [node name="Panel" type="Panel" parent="." unique_id=1038176302]
 z_index = -10
 layout_mode = 1
