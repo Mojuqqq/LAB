@@ -19,9 +19,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tkpm"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [node name="Upgrades" type="Control" unique_id=857935273]
 layout_mode = 3
 anchors_preset = 15
@@ -42,10 +39,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1895.0
-offset_top = 1724.0
-offset_right = 1895.0
-offset_bottom = 1724.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_benfh")
@@ -63,6 +56,7 @@ offset_right = 102.0
 offset_bottom = 73.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_guk4i")
 
 [node name="CharacterPreview" type="Control" parent="VBoxContainer" unique_id=1086639929]
 custom_minimum_size = Vector2(0, 160)
@@ -88,9 +82,7 @@ text = "250 → 275"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/SpeedRow" unique_id=1947446284]
 layout_mode = 2
-theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
 text = "+"
 
 [node name="AttackRow" type="HBoxContainer" parent="VBoxContainer/UpgradesContainer" unique_id=1102372091]
@@ -106,9 +98,7 @@ text = "1 → 2"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/AttackRow" unique_id=368349303]
 layout_mode = 2
-theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
 text = "+"
 
 [node name="TorchRow" type="HBoxContainer" parent="VBoxContainer/UpgradesContainer" unique_id=698654158]
@@ -124,9 +114,7 @@ text = "1.0 → 1.15"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/TorchRow" unique_id=196858010]
 layout_mode = 2
-theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
 text = "+"
 
 [node name="predumatname" type="HBoxContainer" parent="VBoxContainer/UpgradesContainer" unique_id=381363952]
@@ -134,15 +122,10 @@ layout_mode = 2
 
 [node name="menu" type="Button" parent="VBoxContainer/UpgradesContainer/predumatname" unique_id=1070651549]
 layout_mode = 2
-theme = ExtResource("3_guk4i")
-theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
 text = "меню"
 
 [node name="levelselect" type="Button" parent="VBoxContainer/UpgradesContainer/predumatname" unique_id=1047006454]
 layout_mode = 2
-theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
 text = "продолжить"
