@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dsna8qhemk64h" path="res://assets/img/fon.jpg" id="1_igom0"]
 [ext_resource type="Texture2D" uid="uid://dagh1r07hlhl2" path="res://assets/img/Player/player1.png" id="2_ovsvd"]
 [ext_resource type="Theme" uid="uid://b8ccnaefmenre" path="res://Styles/button_theme.tres" id="3_guk4i"]
+[ext_resource type="Texture2D" uid="uid://bn7mvmfivvtt0" path="res://assets/img/objects/dollar.png" id="4_mkjho"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_benfh"]
 texture = ExtResource("1_igom0")
@@ -50,13 +51,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = -73.5
-offset_right = 102.0
-offset_bottom = 73.5
+offset_left = -214.5
+offset_top = -222.5
+offset_right = 214.5
+offset_bottom = 222.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_guk4i")
+
+[node name="CurrencyContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2087514037]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="CurrencyLabel" type="Label" parent="VBoxContainer/CurrencyContainer" unique_id=1516041394]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="CoinIcon" type="TextureRect" parent="VBoxContainer/CurrencyContainer" unique_id=161672963]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_mkjho")
+expand_mode = 2
 
 [node name="CharacterPreview" type="Control" parent="VBoxContainer" unique_id=1086639929]
 custom_minimum_size = Vector2(0, 160)
@@ -74,10 +92,12 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="VBoxContainer/UpgradesContainer/SpeedRow" unique_id=684951468]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Скорость"
 
 [node name="ValueLabel" type="Label" parent="VBoxContainer/UpgradesContainer/SpeedRow" unique_id=840744617]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "250 → 275"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/SpeedRow" unique_id=1947446284]
@@ -90,10 +110,12 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="VBoxContainer/UpgradesContainer/AttackRow" unique_id=1304436734]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Сила атаки"
 
 [node name="ValueLabel" type="Label" parent="VBoxContainer/UpgradesContainer/AttackRow" unique_id=1724471083]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "1 → 2"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/AttackRow" unique_id=368349303]
@@ -106,10 +128,12 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="VBoxContainer/UpgradesContainer/TorchRow" unique_id=1202461590]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Свет факела"
 
 [node name="ValueLabel" type="Label" parent="VBoxContainer/UpgradesContainer/TorchRow" unique_id=378701894]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "1.0 → 1.15"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/TorchRow" unique_id=196858010]

@@ -1,84 +1,51 @@
 extends Control
 
 
-@onready var currency_label: Label = $CurrencyLabel
+@onready var currency_label: Label = ($VBoxContainer/CurrencyContainer/CurrencyLabel)
 
 
-@onready var speed_value: Label = (
-	$VBoxContainer/UpgradesContainer/SpeedRow/ValueLabel
-)
+@onready var speed_value: Label = ($VBoxContainer/UpgradesContainer/SpeedRow/ValueLabel)
 
-@onready var speed_button: Button = (
-	$VBoxContainer/UpgradesContainer/SpeedRow/UpgradeButton
-)
+@onready var speed_button: Button = ($VBoxContainer/UpgradesContainer/SpeedRow/UpgradeButton)
 
 
-@onready var attack_value: Label = (
-	$VBoxContainer/UpgradesContainer/AttackRow/ValueLabel
-)
+@onready var attack_value: Label = ($VBoxContainer/UpgradesContainer/AttackRow/ValueLabel)
 
-@onready var attack_button: Button = (
-	$VBoxContainer/UpgradesContainer/AttackRow/UpgradeButton
-)
+@onready var attack_button: Button = ($VBoxContainer/UpgradesContainer/AttackRow/UpgradeButton)
 
 
-@onready var torch_value: Label = (
-	$VBoxContainer/UpgradesContainer/TorchRow/ValueLabel
-)
+@onready var torch_value: Label = ($VBoxContainer/UpgradesContainer/TorchRow/ValueLabel)
 
-@onready var torch_button: Button = (
-	$VBoxContainer/UpgradesContainer/TorchRow/UpgradeButton
-)
+@onready var torch_button: Button = ($VBoxContainer/UpgradesContainer/TorchRow/UpgradeButton)
 
 
 # Кнопка "Назад".
-@onready var back_button: Button = (
-	$VBoxContainer/UpgradesContainer/predumatname/menu
-)
+@onready var back_button: Button = ($VBoxContainer/UpgradesContainer/predumatname/menu)
 
 # Кнопка "Продолжить".
-@onready var continue_button: Button = (
-	$VBoxContainer/UpgradesContainer/predumatname/levelselect
-)
+@onready var continue_button: Button = ($VBoxContainer/UpgradesContainer/predumatname/levelselect)
 
 
 func _ready() -> void:
-	speed_button.pressed.connect(
-		_on_speed_pressed
-	)
+	speed_button.pressed.connect(_on_speed_pressed)
 
-	attack_button.pressed.connect(
-		_on_attack_pressed
-	)
+	attack_button.pressed.connect(_on_attack_pressed)
 
-	torch_button.pressed.connect(
-		_on_torch_pressed
-	)
+	torch_button.pressed.connect(_on_torch_pressed)
 
-	back_button.pressed.connect(
-		_on_back_pressed
-	)
+	back_button.pressed.connect(_on_back_pressed)
 
-	continue_button.pressed.connect(
-		_on_continue_pressed
-	)
+	continue_button.pressed.connect(_on_continue_pressed)
 
-	GameData.currency_changed.connect(
-		_on_currency_changed
-	)
+	GameData.currency_changed.connect(_on_currency_changed)
 
-	GameData.upgrades_changed.connect(
-		update_ui
-	)
+	GameData.upgrades_changed.connect(update_ui)
 
 	update_ui()
 
 
 func update_ui() -> void:
-	currency_label.text = (
-		"Монеты: %d"
-		% GameData.currency
-	)
+	currency_label.text = str(GameData.currency)
 
 	update_speed()
 	update_attack()
@@ -92,10 +59,7 @@ func update_ui() -> void:
 func update_speed() -> void:
 	var current_speed := GameData.get_speed()
 
-	speed_value.text = (
-		"%d"
-		% int(current_speed)
-	)
+	speed_value.text = ("%d"% int(current_speed))
 
 	if GameData.speed_level >= GameData.MAX_SPEED_LEVEL:
 		speed_button.text = "MAX"
@@ -104,15 +68,9 @@ func update_speed() -> void:
 	else:
 		var cost := GameData.get_speed_cost()
 
-		speed_button.text = (
-			"+ %d"
-			% cost
-		)
+		speed_button.text = ("+ %d"% cost)
 
-		speed_button.disabled = (
-			GameData.currency < cost
-		)
-
+		speed_button.disabled = (GameData.currency < cost)
 
 func _on_speed_pressed() -> void:
 	GameData.buy_speed_upgrade()
@@ -125,10 +83,7 @@ func _on_speed_pressed() -> void:
 func update_attack() -> void:
 	var current_attack := GameData.get_attack_damage()
 
-	attack_value.text = (
-		"%d"
-		% current_attack
-	)
+	attack_value.text = ("%d"% current_attack)
 
 	if GameData.attack_level >= GameData.MAX_ATTACK_LEVEL:
 		attack_button.text = "MAX"
@@ -137,14 +92,9 @@ func update_attack() -> void:
 	else:
 		var cost := GameData.get_attack_cost()
 
-		attack_button.text = (
-			"+ %d"
-			% cost
-		)
+		attack_button.text = ("+ %d"% cost)
 
-		attack_button.disabled = (
-			GameData.currency < cost
-		)
+		attack_button.disabled = (GameData.currency < cost)
 
 
 func _on_attack_pressed() -> void:
@@ -158,10 +108,7 @@ func _on_attack_pressed() -> void:
 func update_torch() -> void:
 	var current_torch := GameData.get_torch_scale()
 
-	torch_value.text = (
-		"x%.2f"
-		% current_torch
-	)
+	torch_value.text = ("x%.2f"% current_torch)
 
 	if GameData.torch_level >= GameData.MAX_TORCH_LEVEL:
 		torch_button.text = "MAX"
@@ -170,14 +117,9 @@ func update_torch() -> void:
 	else:
 		var cost := GameData.get_torch_cost()
 
-		torch_button.text = (
-			"+ %d"
-			% cost
-		)
+		torch_button.text = ("+ %d"% cost)
 
-		torch_button.disabled = (
-			GameData.currency < cost
-		)
+		torch_button.disabled = (GameData.currency < cost)
 
 
 func _on_torch_pressed() -> void:
@@ -198,9 +140,7 @@ func _on_currency_changed(_value: int) -> void:
 
 func _on_back_pressed() -> void:
 	# Возвращаемся в главное меню.
-	get_tree().change_scene_to_file(
-		"res://scenes/ui/menu.tscn"
-	)
+	get_tree().change_scene_to_file("res://scenes/ui/menu.tscn")
 
 
 func _on_continue_pressed() -> void:
