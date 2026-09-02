@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dl6ityi8quvht"]
 
 [ext_resource type="Texture2D" uid="uid://b7v65bbmka1oc" path="res://assets/img/tiles/monster/monster.png" id="1_32yet"]
-[ext_resource type="Script" uid="uid://dc07fjaxkrt5y" path="res://scripts/monster.gd" id="1_djv4h"]
+[ext_resource type="Script" uid="uid://dc07fjaxkrt5y" path="res://Styles/scripts/monster.gd" id="1_djv4h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_djv4h"]
 radius = 18.0

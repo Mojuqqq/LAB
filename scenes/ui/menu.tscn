@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmwy3rxlg373t"]
 
-[ext_resource type="Script" uid="uid://dtsxv06jjhwmd" path="res://scripts/menu.gd" id="1_7w7rl"]
+[ext_resource type="Script" uid="uid://dtsxv06jjhwmd" path="res://Styles/scripts/menu.gd" id="1_7w7rl"]
 [ext_resource type="Texture2D" uid="uid://dsna8qhemk64h" path="res://assets/img/fon.jpg" id="2_wedc3"]
 [ext_resource type="Theme" uid="uid://b8ccnaefmenre" path="res://Styles/button_theme.tres" id="3_ntye7"]
 

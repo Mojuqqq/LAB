@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://c1qkmta1f8xwh"]
+
+[ext_resource type="Script" uid="uid://nhihq03fggcn" path="res://Styles/scripts/upgrades.gd" id="1_58831"]
+[ext_resource type="Texture2D" uid="uid://dsna8qhemk64h" path="res://assets/img/fon.jpg" id="1_igom0"]
+[ext_resource type="Texture2D" uid="uid://dagh1r07hlhl2" path="res://assets/img/Player/player1.png" id="2_ovsvd"]
+[ext_resource type="Theme" uid="uid://b8ccnaefmenre" path="res://Styles/button_theme.tres" id="3_guk4i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_benfh"]
+texture = ExtResource("1_igom0")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_benfh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ovsvd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tkpm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Upgrades" type="Control" unique_id=857935273]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_58831")
+
+[node name="CurrencyLabel" type="Label" parent="." unique_id=1114958025]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BackButton" type="Button" parent="." unique_id=1367711728]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Panel" type="Panel" parent="." unique_id=1038176302]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1895.0
+offset_top = 1724.0
+offset_right = 1895.0
+offset_bottom = 1724.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_benfh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=126622950]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -73.5
+offset_right = 102.0
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterPreview" type="Control" parent="VBoxContainer" unique_id=1086639929]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/CharacterPreview" unique_id=1472594368]
+position = Vector2(100, 80)
+sprite_frames = SubResource("SpriteFrames_benfh")
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1275455607]
+layout_mode = 2
+
+[node name="SpeedRow" type="HBoxContainer" parent="VBoxContainer/UpgradesContainer" unique_id=713479064]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/UpgradesContainer/SpeedRow" unique_id=684951468]
+layout_mode = 2
+text = "Скорость"
+
+[node name="ValueLabel" type="Label" parent="VBoxContainer/UpgradesContainer/SpeedRow" unique_id=840744617]
+layout_mode = 2
+text = "250 → 275"
+
+[node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/SpeedRow" unique_id=1947446284]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
+text = "+"
+
+[node name="AttackRow" type="HBoxContainer" parent="VBoxContainer/UpgradesContainer" unique_id=1102372091]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/UpgradesContainer/AttackRow" unique_id=1304436734]
+layout_mode = 2
+text = "Сила атаки"
+
+[node name="ValueLabel" type="Label" parent="VBoxContainer/UpgradesContainer/AttackRow" unique_id=1724471083]
+layout_mode = 2
+text = "1 → 2"
+
+[node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/AttackRow" unique_id=368349303]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
+text = "+"
+
+[node name="TorchRow" type="HBoxContainer" parent="VBoxContainer/UpgradesContainer" unique_id=698654158]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/UpgradesContainer/TorchRow" unique_id=1202461590]
+layout_mode = 2
+text = "Свет факела"
+
+[node name="ValueLabel" type="Label" parent="VBoxContainer/UpgradesContainer/TorchRow" unique_id=378701894]
+layout_mode = 2
+text = "1.0 → 1.15"
+
+[node name="UpgradeButton" type="Button" parent="VBoxContainer/UpgradesContainer/TorchRow" unique_id=196858010]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
+text = "+"
+
+[node name="predumatname" type="HBoxContainer" parent="VBoxContainer/UpgradesContainer" unique_id=381363952]
+layout_mode = 2
+
+[node name="menu" type="Button" parent="VBoxContainer/UpgradesContainer/predumatname" unique_id=1070651549]
+layout_mode = 2
+theme = ExtResource("3_guk4i")
+theme_override_constants/h_separation = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
+text = "меню"
+
+[node name="levelselect" type="Button" parent="VBoxContainer/UpgradesContainer/predumatname" unique_id=1047006454]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkpm")
+text = "продолжить"

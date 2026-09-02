@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cx4p6ux8cpam4"]
 
 [ext_resource type="Texture2D" uid="uid://c5ejbq57oc8c0" path="res://assets/img/tiles/floor/bottom floor.png" id="2_0a6j2"]
-[ext_resource type="Script" uid="uid://f74e6ieixu34" path="res://scripts/level_test.gd" id="3_4ptlp"]
+[ext_resource type="Script" uid="uid://f74e6ieixu34" path="res://Styles/scripts/level_test.gd" id="3_4ptlp"]
 [ext_resource type="Texture2D" uid="uid://k6swsbnux517" path="res://assets/img/tiles/floor/center floor.png" id="3_pjn7f"]
 [ext_resource type="PackedScene" uid="uid://07q7biea8vma" path="res://scenes/player/player.tscn" id="3_ycf23"]
 [ext_resource type="Texture2D" uid="uid://sltmrsg5k31a" path="res://assets/img/tiles/floor/upper right floor.png" id="4_ts3kv"]
@@ -244,6 +244,7 @@ bg_color = Color(1, 0, 0, 1)
 
 [node name="LevelTest" type="Node2D" unique_id=524379075]
 script = ExtResource("3_4ptlp")
+level_time = 20.0
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=999463077]
 tile_map_data = PackedByteArray("AAACAA8AAwAAAAAAAAADAA8AAwAAAAAAAAAEAA8AAwAAAAAAAAAFAA8AAwAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAwAAAAAAAAAIAA8AAwAAAAAAAAAJAA8AAwAAAAAAAAAGAA4ACwAAAAAAAAAGAA0ACwAAAAAAAAAGAAwACwAAAAAAAAAGAAsAAQAAAAAAAAAHAAsAAwAAAAAAAAAIAAsAAwAAAAAAAAAJAAsAAwAAAAAAAAAFAAsAAwAAAAAAAAAEAAsAAwAAAAAAAAADAAsAAwAAAAAAAAAGAAoACwAAAAAAAAAGAAkACwAAAAAAAAAGAAgACAAAAAAAAAAEAAgAAwAAAAAAAAAFAAgAAwAAAAAAAAACAAsABAAAAAAAAAACAAwACwAAAAAAAAAQAA4ACwAAAAAAAAAQAA8ABgAAAAAAAAAPAA8AAwAAAAAAAAAOAA8AAwAAAAAAAAAQAAkACwAAAAAAAAAQAAoACwAAAAAAAAAQAAsACwAAAAAAAAANAAsACgAAAAAAAAAKAAsAAwAAAAAAAAALAAsAAwAAAAAAAAAMAAsAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAACAAgACQAAAAAAAAACAAoACwAAAAAAAAACAAkACwAAAAAAAAADAAgAAwAAAAAAAAAKAA8ABgAAAAAAAAAKAA4ACwAAAAAAAAAQAA0ACwAAAAAAAAAQAAwABwAAAAAAAAAPAAwAAwAAAAAAAAAOAAwAAwAAAAAAAAANAAwABQAAAAAAAAA=")

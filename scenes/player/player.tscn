@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://07q7biea8vma"]
 
 [ext_resource type="Texture2D" uid="uid://dagh1r07hlhl2" path="res://assets/img/Player/player1.png" id="1_gmlin"]
-[ext_resource type="Script" uid="uid://x0md30s4c0do" path="res://scripts/player.gd" id="1_lvxji"]
+[ext_resource type="Script" uid="uid://x0md30s4c0do" path="res://Styles/scripts/player.gd" id="1_lvxji"]
 [ext_resource type="Texture2D" uid="uid://ou0viyev8kv1" path="res://assets/img/Player/player3.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://56o32b3te2dp" path="res://assets/img/Player/player2.png" id="3_p47bc"]
-[ext_resource type="Script" uid="uid://b8rogj8yy5xou" path="res://scripts/camera_2d.gd" id="5_0owmy"]
+[ext_resource type="Script" uid="uid://b8rogj8yy5xou" path="res://Styles/scripts/camera_2d.gd" id="5_0owmy"]
 [ext_resource type="Texture2D" uid="uid://drer1ofu5yikh" path="res://assets/img/tiles/light.png" id="5_p47bc"]
-[ext_resource type="Script" uid="uid://ci4kj1boljtoc" path="res://scripts/torch_light.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://ci4kj1boljtoc" path="res://Styles/scripts/torch_light.gd" id="6_75vfm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ejf0q"]
 animations = [{

@@ -18,6 +18,7 @@ signal died
 @export var attack_cooldown: float = 0.4
 
 
+@onready var torch_light: PointLight2D = $TorchLight
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var attack_area: Area2D = (
@@ -33,8 +34,9 @@ var is_dead: bool = false
 
 
 func _ready() -> void:
+	speed = GameData.get_speed()
 	health = max_health
-
+	torch_light.texture_scale = GameData.get_torch_scale()
 	animated_sprite.play("idle")
 
 
