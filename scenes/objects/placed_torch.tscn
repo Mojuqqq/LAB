@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://m13dvsrlby3i"]
+
+[ext_resource type="Texture2D" uid="uid://byfktn2homc00" path="res://assets/img/objects/torch.png" id="1_08j8i"]
+[ext_resource type="Texture2D" uid="uid://c5k0vubihoxbv" path="res://assets/img/tiles/light_torch.png" id="2_wdi58"]
+[ext_resource type="Script" uid="uid://ci4kj1boljtoc" path="res://Styles/scripts/torch_light.gd" id="3_wdi58"]
+
+[node name="PlacedTorch" type="Node2D" unique_id=401158356]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1601899557]
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("1_08j8i")
+
+[node name="TorchLight" type="PointLight2D" parent="." unique_id=466122513]
+scale = Vector2(0.1, 0.1)
+shadow_enabled = true
+texture = ExtResource("2_wdi58")
+script = ExtResource("3_wdi58")

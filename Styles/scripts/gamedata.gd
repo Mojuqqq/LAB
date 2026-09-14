@@ -3,6 +3,7 @@ extends Node
 
 signal currency_changed(value: int)
 signal upgrades_changed
+signal torches_changed(value: int)
 
 
 # -------------------------
@@ -10,6 +11,8 @@ signal upgrades_changed
 # -------------------------
 
 var currency: int = 0
+var torches: int = 5
+const PORTABLE_TORCH_COST: int = 50
 
 
 # -------------------------
@@ -162,11 +165,12 @@ func add_currency(amount: int) -> void:
 
 func save_game() -> void:
 	var data := {
-		"currency": currency,
-		"speed_level": speed_level,
-		"attack_level": attack_level,
-		"torch_level": torch_level
-	}
+	"currency": currency,
+	"torches": torches,
+	"speed_level": speed_level,
+	"attack_level": attack_level,
+	"torch_level": torch_level
+}
 
 	var file := FileAccess.open(
 		SAVE_PATH,
@@ -217,3 +221,56 @@ func load_game() -> void:
 		"torch_level",
 		0
 	)
+	
+	torches = data.get(
+	"torches",
+	0
+)
+	
+	# ====================================================
+# РАСХОДУЕМЫЕ ФАКЕЛЫ
+# ====================================================
+
+func get_portable_torch_cost() -> int:
+	return PORTABLE_TORCH_COST
+
+
+func add_torches(amount: int) -> void:
+	if amount <= 0:
+		return
+
+	torches += amount
+
+	torches_changed.emit(torches)
+
+	save_game()
+
+
+func use_torch() -> bool:
+	if torches <= 0:
+		return false
+
+	torches -= 1
+
+	torches_changed.emit(torches)
+
+	save_game()
+
+	return true
+
+
+func buy_portable_torch() -> bool:
+	var cost := get_portable_torch_cost()
+
+	if currency < cost:
+		return false
+
+	currency -= cost
+	torches += 1
+
+	currency_changed.emit(currency)
+	torches_changed.emit(torches)
+
+	save_game()
+
+	return true

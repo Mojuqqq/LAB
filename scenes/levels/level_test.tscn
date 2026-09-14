@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bi5i1qhbs00ji" path="res://assets/img/tiles/wall/upper left wall.png" id="18_14a6r"]
 [ext_resource type="PackedScene" uid="uid://dvp83ydepxst0" path="res://scenes/popup/Game_Over_Popup.tscn" id="22_pjn7f"]
 [ext_resource type="PackedScene" uid="uid://dl6ityi8quvht" path="res://scenes/mobs/Monster.tscn" id="22_t58d3"]
+[ext_resource type="Texture2D" uid="uid://b6lwei2nkf18i" path="res://assets/img/objects/torch_icon.png" id="23_mrb78"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_t58d3"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -245,6 +246,7 @@ bg_color = Color(1, 0, 0, 1)
 [node name="LevelTest" type="Node2D" unique_id=524379075]
 script = ExtResource("3_4ptlp")
 level_time = 20.0
+key_time_bonus = null
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=999463077]
 tile_map_data = PackedByteArray("AAACAA8AAwAAAAAAAAADAA8AAwAAAAAAAAAEAA8AAwAAAAAAAAAFAA8AAwAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAwAAAAAAAAAIAA8AAwAAAAAAAAAJAA8AAwAAAAAAAAAGAA4ACwAAAAAAAAAGAA0ACwAAAAAAAAAGAAwACwAAAAAAAAAGAAsAAQAAAAAAAAAHAAsAAwAAAAAAAAAIAAsAAwAAAAAAAAAJAAsAAwAAAAAAAAAFAAsAAwAAAAAAAAAEAAsAAwAAAAAAAAADAAsAAwAAAAAAAAAGAAoACwAAAAAAAAAGAAkACwAAAAAAAAAGAAgACAAAAAAAAAAEAAgAAwAAAAAAAAAFAAgAAwAAAAAAAAACAAsABAAAAAAAAAACAAwACwAAAAAAAAAQAA4ACwAAAAAAAAAQAA8ABgAAAAAAAAAPAA8AAwAAAAAAAAAOAA8AAwAAAAAAAAAQAAkACwAAAAAAAAAQAAoACwAAAAAAAAAQAAsACwAAAAAAAAANAAsACgAAAAAAAAAKAAsAAwAAAAAAAAALAAsAAwAAAAAAAAAMAAsAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAACAAgACQAAAAAAAAACAAoACwAAAAAAAAACAAkACwAAAAAAAAADAAgAAwAAAAAAAAAKAA8ABgAAAAAAAAAKAA4ACwAAAAAAAAAQAA0ACwAAAAAAAAAQAAwABwAAAAAAAAAPAAwAAwAAAAAAAAAOAAwAAwAAAAAAAAANAAwABQAAAAAAAAA=")
@@ -336,6 +338,32 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "🔑 0 / 3"
+
+[node name="TorchHUD" type="HBoxContainer" parent="HUD" unique_id=1531701400]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 25.0
+offset_right = -120.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 15
+
+[node name="TorchButton" type="Button" parent="HUD/TorchHUD" unique_id=156181212]
+custom_maximum_size = Vector2(56, 48)
+layout_mode = 2
+icon = ExtResource("23_mrb78")
+flat = true
+
+[node name="TorchCountLabel" type="Label" parent="HUD/TorchHUD" unique_id=1241473039]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "x0"
+
+[node name="TorchKeyLabel" type="Label" parent="HUD/TorchHUD" unique_id=83375243]
+layout_mode = 2
+text = "[F]"
 
 [node name="GameOverPopup" parent="." unique_id=1466469747 instance=ExtResource("22_pjn7f")]
 visible = false

@@ -1,5 +1,8 @@
 extends Node2D
 
+const PLACED_TORCH_SCENE := preload(
+	"res://scenes/objects/placed_torch.tscn"
+)
 
 @export var level_time: float = 60.0
 @export var key_time_bonus: float = 5.0
@@ -13,6 +16,16 @@ extends Node2D
 @onready var player = $Player
 @onready var health_bar: ProgressBar = $HUD/HealthBar
 @onready var key_counter: Label = $HUD/KeyCounter
+
+@onready var objects: Node2D = $Objects
+
+@onready var torch_button: Button = (
+	$HUD/TorchHUD/TorchButton
+)
+
+@onready var torch_count_label: Label = (
+	$HUD/TorchHUD/TorchCountLabel
+)
 
 
 var level_ended: bool = false
@@ -63,6 +76,16 @@ func _ready() -> void:
 	health_bar.value = player.health
 
 	update_timer_label()
+	
+	torch_button.pressed.connect(
+	_on_torch_button_pressed
+)
+
+GameData.torches_changed.connect(
+	_on_torches_changed
+)
+
+update_torch_hud()
 
 
 func _process(_delta: float) -> void:
@@ -195,3 +218,47 @@ func show_game_over() -> void:
 	game_over_popup.visible = true
 
 	get_tree().paused = true
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if level_ended:
+		return
+
+	if event.is_action_pressed("place_torch"):
+		place_torch()
+
+func place_torch() -> void:
+	if level_ended:
+		return
+
+	if GameData.torches <= 0:
+		return
+
+	if not GameData.use_torch():
+		return
+
+	var placed_torch := (
+		PLACED_TORCH_SCENE.instantiate()
+		as Node2D
+	)
+
+	objects.add_child(placed_torch)
+
+	placed_torch.global_position = (
+		player.global_position
+	)
+
+func _on_torch_button_pressed() -> void:
+	place_torch()
+	
+func update_torch_hud() -> void:
+	torch_count_label.text = (
+		"x%d" % GameData.torches
+	)
+
+	torch_button.disabled = (
+		GameData.torches <= 0
+	)
+
+
+func _on_torches_changed(_value: int) -> void:
+	update_torch_hud()
